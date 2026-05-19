@@ -2,7 +2,7 @@
 // ------------------------------
 // VARIABLES GLOBALES
 // ------------------------------
-const API_URL = "http://localhost:8000/api";
+const API_URL = "/api";
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 let usuario = JSON.parse(localStorage.getItem("usuario")) || null;
 
@@ -103,7 +103,7 @@ async function finalizarCompra() {
         if (res.ok) {
             carrito = [];
             localStorage.setItem("carrito", JSON.stringify(carrito));
-            window.location.href = "confirmación.html";
+            window.location.href = "confirmacion.html";
         } else {
             const error = await res.json().catch(() => ({}));
             alert("Error al finalizar compra: " + (error.detail || JSON.stringify(error)));
